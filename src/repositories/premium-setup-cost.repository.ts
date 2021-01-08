@@ -12,10 +12,14 @@ export class PremiumSetupCostRepository extends DefaultCrudRepository<
 
   public readonly productNPrice: HasOneRepositoryFactory<ProductNPrice, typeof PremiumSetupCost.prototype.id>;
 
+  public readonly productNPricePremiumSetup: HasOneRepositoryFactory<ProductNPrice, typeof PremiumSetupCost.prototype.id>;
+
   constructor(
     @inject('datasources.airinone') dataSource: AirinoneDataSource, @repository.getter('ProductNPriceRepository') protected productNPriceRepositoryGetter: Getter<ProductNPriceRepository>,
   ) {
     super(PremiumSetupCost, dataSource);
+    this.productNPricePremiumSetup = this.createHasOneRepositoryFactoryFor('productNPricePremiumSetup', productNPriceRepositoryGetter);
+    this.registerInclusionResolver('productNPricePremiumSetup', this.productNPricePremiumSetup.inclusionResolver);
     this.productNPrice = this.createHasOneRepositoryFactoryFor('productNPrice', productNPriceRepositoryGetter);
     this.registerInclusionResolver('productNPrice', this.productNPrice.inclusionResolver);
   }

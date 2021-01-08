@@ -12,10 +12,14 @@ export class WageRepository extends DefaultCrudRepository<
 
   public readonly productNPrice: HasOneRepositoryFactory<ProductNPrice, typeof Wage.prototype.id>;
 
+  public readonly productNPricewage: HasOneRepositoryFactory<ProductNPrice, typeof Wage.prototype.id>;
+
   constructor(
     @inject('datasources.airinone') dataSource: AirinoneDataSource, @repository.getter('ProductNPriceRepository') protected productNPriceRepositoryGetter: Getter<ProductNPriceRepository>,
   ) {
     super(Wage, dataSource);
+    this.productNPricewage = this.createHasOneRepositoryFactoryFor('productNPricewage', productNPriceRepositoryGetter);
+    this.registerInclusionResolver('productNPricewage', this.productNPricewage.inclusionResolver);
     this.productNPrice = this.createHasOneRepositoryFactoryFor('productNPrice', productNPriceRepositoryGetter);
     this.registerInclusionResolver('productNPrice', this.productNPrice.inclusionResolver);
   }
