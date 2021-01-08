@@ -43,6 +43,9 @@ export class ItemPrice extends Entity {
   @hasOne(() => ProductNPrice, {keyTo: 'item_price_id'})
   productNPrice: ProductNPrice;
 
+  @hasOne(() => ProductNPrice, {keyTo: 'item_price_id'})
+  productNPriceItemPrice: ProductNPrice;
+
   constructor(data?: Partial<ItemPrice>) {
     super(data);
   }

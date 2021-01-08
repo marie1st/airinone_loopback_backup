@@ -3,12 +3,12 @@ import {Wage} from './wage.model';
 import {ItemPrice} from './item-price.model';
 import {PremiumSetupCost} from './premium-setup-cost.model';
 
-@model()
+@model({settings: {strict: false}})
 export class ProductNPrice extends Entity {
   @property({
     type: 'number',
     id: true,
-    generated: true,
+    generated: false,
   })
   id?: number;
 
@@ -41,6 +41,7 @@ export class ProductNPrice extends Entity {
     required: true,
   })
   promotion_id: number;
+
   @property({
     type: 'number',
     required: true,
@@ -70,14 +71,19 @@ export class ProductNPrice extends Entity {
   })
   profit_percent: number;
 
-  @belongsTo(() => Wage, {name: 'Wage'})
+  @belongsTo(() => Wage, {name: 'wageid'})
   wage_id: number;
 
-  @belongsTo(() => ItemPrice, {name: 'ItemPrice'})
+  @belongsTo(() => ItemPrice, {name: 'Itemprice'})
   item_price_id: number;
 
-  @belongsTo(() => PremiumSetupCost, {name: 'PremiiumSetupCost'})
+  @belongsTo(() => PremiumSetupCost, {name: 'PremiumSetup'})
   premium_setup_id: number;
+  // Define well-known properties here
+
+  // Indexer property to allow additional data
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [prop: string]: any;
 
   constructor(data?: Partial<ProductNPrice>) {
     super(data);

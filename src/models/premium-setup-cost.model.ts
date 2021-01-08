@@ -43,6 +43,9 @@ export class PremiumSetupCost extends Entity {
   @hasOne(() => ProductNPrice, {keyTo: 'premium_setup_id'})
   productNPrice: ProductNPrice;
 
+  @hasOne(() => ProductNPrice, {keyTo: 'premium_setup_id'})
+  productNPricePremiumSetup: ProductNPrice;
+
   constructor(data?: Partial<PremiumSetupCost>) {
     super(data);
   }

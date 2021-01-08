@@ -43,6 +43,9 @@ export class Wage extends Entity {
   @hasOne(() => ProductNPrice, {keyTo: 'wage_id'})
   productNPrice: ProductNPrice;
 
+  @hasOne(() => ProductNPrice, {keyTo: 'wage_id'})
+  productNPricewage: ProductNPrice;
+
   constructor(data?: Partial<Wage>) {
     super(data);
   }
