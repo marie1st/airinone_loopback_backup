@@ -33,6 +33,6 @@ export class ProductNPriceItemPriceController {
   async getItemPrice(
     @param.path.number('id') id: typeof ProductNPrice.prototype.id,
   ): Promise<ItemPrice> {
-    return this.productNPriceRepository.ItemPrice(id);
+    return this.productNPriceRepository.Itemprice(id);
   }
 }

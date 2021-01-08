@@ -77,3 +77,7 @@ export * from './order-product-leak-test.controller';
 export * from './order-product-vacumm-test.controller';
 export * from './order-product-add-liquid.controller';
 export * from './employee-employee-working.controller';
+export * from './product-n-price.controller';
+export * from './product-n-price-wage.controller';
+export * from './product-n-price-item-price.controller';
+export * from './product-n-price-premium-setup-cost.controller';

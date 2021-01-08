@@ -33,6 +33,6 @@ export class ProductNPricePremiumSetupCostController {
   async getPremiumSetupCost(
     @param.path.number('id') id: typeof ProductNPrice.prototype.id,
   ): Promise<PremiumSetupCost> {
-    return this.productNPriceRepository.PremiiumSetupCost(id);
+    return this.productNPriceRepository.PremiumSetup(id);
   }
 }

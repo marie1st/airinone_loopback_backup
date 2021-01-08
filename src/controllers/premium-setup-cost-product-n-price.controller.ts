@@ -42,7 +42,7 @@ export class PremiumSetupCostProductNPriceController {
     @param.path.number('id') id: number,
     @param.query.object('filter') filter?: Filter<ProductNPrice>,
   ): Promise<ProductNPrice> {
-    return this.premiumSetupCostRepository.productNPrice(id).get(filter);
+    return this.premiumSetupCostRepository.productNPricePremiumSetup(id).get(filter);
   }
 
   @post('/premium-setup-costs/{id}/product-n-price', {
@@ -67,7 +67,7 @@ export class PremiumSetupCostProductNPriceController {
       },
     }) productNPrice: Omit<ProductNPrice, 'id'>,
   ): Promise<ProductNPrice> {
-    return this.premiumSetupCostRepository.productNPrice(id).create(productNPrice);
+    return this.premiumSetupCostRepository.productNPricePremiumSetup(id).create(productNPrice);
   }
 
   @patch('/premium-setup-costs/{id}/product-n-price', {
@@ -90,7 +90,7 @@ export class PremiumSetupCostProductNPriceController {
     productNPrice: Partial<ProductNPrice>,
     @param.query.object('where', getWhereSchemaFor(ProductNPrice)) where?: Where<ProductNPrice>,
   ): Promise<Count> {
-    return this.premiumSetupCostRepository.productNPrice(id).patch(productNPrice, where);
+    return this.premiumSetupCostRepository.productNPricePremiumSetup(id).patch(productNPrice, where);
   }
 
   @del('/premium-setup-costs/{id}/product-n-price', {
@@ -105,6 +105,6 @@ export class PremiumSetupCostProductNPriceController {
     @param.path.number('id') id: number,
     @param.query.object('where', getWhereSchemaFor(ProductNPrice)) where?: Where<ProductNPrice>,
   ): Promise<Count> {
-    return this.premiumSetupCostRepository.productNPrice(id).delete(where);
+    return this.premiumSetupCostRepository.productNPricePremiumSetup(id).delete(where);
   }
 }

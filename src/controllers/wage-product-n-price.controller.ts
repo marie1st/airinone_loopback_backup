@@ -42,7 +42,7 @@ export class WageProductNPriceController {
     @param.path.number('id') id: number,
     @param.query.object('filter') filter?: Filter<ProductNPrice>,
   ): Promise<ProductNPrice> {
-    return this.wageRepository.productNPrice(id).get(filter);
+    return this.wageRepository.productNPricewage(id).get(filter);
   }
 
   @post('/wages/{id}/product-n-price', {
@@ -67,7 +67,7 @@ export class WageProductNPriceController {
       },
     }) productNPrice: Omit<ProductNPrice, 'id'>,
   ): Promise<ProductNPrice> {
-    return this.wageRepository.productNPrice(id).create(productNPrice);
+    return this.wageRepository.productNPricewage(id).create(productNPrice);
   }
 
   @patch('/wages/{id}/product-n-price', {
@@ -90,7 +90,7 @@ export class WageProductNPriceController {
     productNPrice: Partial<ProductNPrice>,
     @param.query.object('where', getWhereSchemaFor(ProductNPrice)) where?: Where<ProductNPrice>,
   ): Promise<Count> {
-    return this.wageRepository.productNPrice(id).patch(productNPrice, where);
+    return this.wageRepository.productNPricewage(id).patch(productNPrice, where);
   }
 
   @del('/wages/{id}/product-n-price', {
@@ -105,6 +105,6 @@ export class WageProductNPriceController {
     @param.path.number('id') id: number,
     @param.query.object('where', getWhereSchemaFor(ProductNPrice)) where?: Where<ProductNPrice>,
   ): Promise<Count> {
-    return this.wageRepository.productNPrice(id).delete(where);
+    return this.wageRepository.productNPricewage(id).delete(where);
   }
 }

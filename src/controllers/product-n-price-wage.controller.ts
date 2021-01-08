@@ -33,6 +33,6 @@ export class ProductNPriceWageController {
   async getWage(
     @param.path.number('id') id: typeof ProductNPrice.prototype.id,
   ): Promise<Wage> {
-    return this.productNPriceRepository.Wage(id);
+    return this.productNPriceRepository.wageid(id);
   }
 }
