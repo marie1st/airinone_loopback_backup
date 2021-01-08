@@ -1,13 +1,14 @@
 import {Entity, model, property} from '@loopback/repository';
 
-@model()
+@model({settings: {strict: false}})
 export class Warehouse extends Entity {
   @property({
     type: 'number',
     id: true,
-    generated: true,
+    generated: false,
+    required: true,
   })
-  id?: number;
+  id: number;
 
   @property({
     type: 'string',
@@ -41,14 +42,21 @@ export class Warehouse extends Entity {
 
   @property({
     type: 'string',
+    required: true,
   })
-  description?: string;
+  description: string;
 
   @property({
     type: 'date',
+    required: true,
   })
-  created_at?: string;
+  created_at: string;
 
+  // Define well-known properties here
+
+  // Indexer property to allow additional data
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [prop: string]: any;
 
   constructor(data?: Partial<Warehouse>) {
     super(data);
