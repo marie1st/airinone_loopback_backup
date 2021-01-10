@@ -34,3 +34,4 @@ export * from './promotional-products-giveaway.repository';
 export * from './employment.repository';
 export * from './setup-process.repository';
 export * from './product-n-price.repository';
+export * from './mechanical-equipment.repository';
