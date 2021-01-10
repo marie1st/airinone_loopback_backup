@@ -34,3 +34,4 @@ export * from './promotional-products-percent.model';
 export * from './promotional-products-price.model';
 export * from './promotional-products-giveaway.model';
 export * from './setup-process.model';
+export * from './mechanical-equipment.model';

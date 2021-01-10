@@ -1,5 +1,6 @@
 import {Entity, model, property, belongsTo} from '@loopback/repository';
 import {OrderProduct} from './order-product.model';
+import {MechanicalEquipment} from './mechanical-equipment.model';
 
 @model()
 export class WithdrawMechanicalEquipment extends Entity {
@@ -9,13 +10,6 @@ export class WithdrawMechanicalEquipment extends Entity {
     generated: true,
   })
   id?: number;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  meid: string;
-
   @property({
     type: 'string',
     required: true,
@@ -54,6 +48,9 @@ export class WithdrawMechanicalEquipment extends Entity {
 
   @belongsTo(() => OrderProduct, {name: 'OrderProduct'})
   order_id: string;
+
+  @belongsTo(() => MechanicalEquipment, {name: 'mechanicalwithdraw'})
+  meid: string;
 
   constructor(data?: Partial<WithdrawMechanicalEquipment>) {
     super(data);
