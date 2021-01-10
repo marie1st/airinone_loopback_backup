@@ -81,3 +81,6 @@ export * from './product-n-price.controller';
 export * from './product-n-price-wage.controller';
 export * from './product-n-price-item-price.controller';
 export * from './product-n-price-premium-setup-cost.controller';
+export * from './mechanical-equipment.controller';
+export * from './mechanical-equipment-withdraw-mechanical-equipment.controller';
+export * from './withdraw-mechanical-equipment-mechanical-equipment.controller';
